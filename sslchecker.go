@@ -1,7 +1,6 @@
 package main
 
 import (
-	"bytes"
 	"crypto/x509"
 	"encoding/json"
 	"encoding/pem"
@@ -35,9 +34,6 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-
-	var buf bytes.Buffer
-	buf.Grow(4096) // 4KiB should be enough
 
 	info := CertInfo{
 		SerialNumber: fmt.Sprintf("%s", cert.SerialNumber),
